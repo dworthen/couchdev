@@ -26,6 +26,8 @@ const StyledHeader = styled.header`
   height: auto;
   display: flex;
   align-items: flex-end;
+  background: transparent;
+  border: none;
   small {
     font-size: .5em;
   }

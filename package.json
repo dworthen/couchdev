@@ -9,6 +9,7 @@
     "serve": "http-server ./out -p 3000"
   },
   "dependencies": {
+    "dayjs": "^1.10.4",
     "mini.css": "^3.0.1",
     "next": "10.0.7",
     "react": "17.0.1",

@@ -4,7 +4,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import {getMdxFiles} from "../../utils";
 import {getPosts} from "../api/posts";
 import hydrate from "next-mdx-remote/hydrate";
-import {PostMetaData} from "../../components/Card";
+import {PostMetaData} from "../../components/Article";
 import {MdxRemote} from "next-mdx-remote/types";
 
 export interface PostProps {

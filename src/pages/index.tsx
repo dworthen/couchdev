@@ -4,7 +4,7 @@ import {baseUrl, postFilePaths, POSTS_PATH} from "../config";
 import * as fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Card from "../components/Card";
+import Article from "../components/Article";
 // import styles from '../styles/Home.module.css'
 import {getPosts} from './api/posts'
 
@@ -18,7 +18,7 @@ export default function Home({ posts }) {
 
       <main>
           {posts.map((post) => (
-              <Card post={post} key={post.filePath}/>
+              <Article post={post} key={post.filePath}/>
           ))}
       </main>
 

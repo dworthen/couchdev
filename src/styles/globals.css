@@ -1,4 +1,78 @@
 body {
   height: 100vm;
   width: 100vm;
+  --color: #eee;
+  --page-color: hsla(199, 100%, 20%, 1);
+  --bg-color: #222;
+  --border-color: #111;
+  --secondary-border-color: #333;
+  --anchor-color: hsl(199, 100%, 47%);
+  --accent-color: hsl(13, 89%, 54%);
+  background: var(--page-color);
+}
+
+html, * {
+  line-height: 1.7rem;
+}
+
+body, strong, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  color: var(--color);
+}
+
+h2 {
+  line-height: 2.5rem;
+}
+
+h1, h2, h3, h4, h5, h6, pre {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a, a:link, a:visited {
+  color: var(--anchor-color);
+}
+
+img {
+  background: var(--color);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+}
+
+pre, code, blockquote {
+  background: var(--border-color);
+}
+
+pre, code {
+  font-size: 0.9rem;
+}
+
+pre, blockquote {
+  border: 2px solid var(--secondary-border-color);
+  border-left: 6px solid var(--anchor-color);
+  border-radius: 4px;
+}
+
+blockquote {
+  border-left: 6px solid var(--accent-color);
+  padding: 0;
+}
+
+blockquote:before {
+  content: none;
+}
+
+hr {
+  margin: 30px 8px;
+}
+
+p {
+  margin: 1.25em 0;
+}
+
+blockquote p {
+  margin: 1em;
 }

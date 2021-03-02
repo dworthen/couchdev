@@ -3,7 +3,7 @@ import {postFilePaths, POSTS_PATH} from "../../../config";
 import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
-import {Post, PostMetaData} from "../../../components/Card";
+import {Post, PostMetaData} from "../../../components/Article";
 import {getMdxFiles} from "../../../utils";
 
 
