@@ -8,22 +8,34 @@ body {
   --secondary-border-color: #333;
   --anchor-color: hsl(199, 100%, 47%);
   --accent-color: hsl(13, 89%, 54%);
-  background: var(--page-color);
+  --secondary-accent-color: hsl(148, 77%, 38%);
+  --title-color: hsl(240, 59%, 75%);
+  background: var(--bg-color);
 }
 
 html, * {
   line-height: 1.7rem;
 }
 
+* {
+  font-size: 1.3rem;
+}
+
 body, strong, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: var(--color);
 }
 
-h2 {
-  line-height: 2.5rem;
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5em;
+  color: var(--title-color);
 }
 
-h1, h2, h3, h4, h5, h6, pre {
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+  content: '# ';
+  color: var(--secondary-accent-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
   margin-left: 0;
   margin-right: 0;
 }
@@ -42,13 +54,14 @@ img {
   border-radius: 4px;
 }
 
-pre, code, blockquote {
+pre, code,
+blockquote {
   background: var(--border-color);
 }
 
-pre, code {
-  font-size: 0.9rem;
-}
+/*pre, code {*/
+/*  font-size: 1rem;*/
+/*}*/
 
 pre, blockquote {
   border: 2px solid var(--secondary-border-color);

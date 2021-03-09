@@ -21,7 +21,7 @@ It wasn't my fault. My IDE of choice made the decision for me, without my consen
 
 I was immediately drawn to the type system. The compiler provides type safety and valuable feedback. Take the following code for example:
 
-```TypeScript
+```ts
 export function add(a: number, b: number): number {
     return a + b;
 }
@@ -29,7 +29,7 @@ export function add(a: number, b: number): number {
 
 Valid TypeScript. Now let's call, or should I say miscall, `add`.
 
-```TypeScript
+```ts
 add('Hello', { name: "World" });
 ```
 
@@ -39,7 +39,7 @@ Writing application code in TypeScript adds type safety, a great benefit to deve
 
 Writing reusable JavaScript libraries in TypeScript is a different matter. What if we were to package and distribute `add` as a JavaScript library? The following is the compiled JavaScript version of `add`.
 
-```JavaScript
+```js
 export function add(a, b) {
     return a + b;
 }
@@ -55,7 +55,7 @@ Compilation removes type information and restraints on `add`. Developers using t
 
 As always with library development, consider end users and write unit tests for all use cases. On top of unit tests, consider writing runtime type checks. This will prevent misuse of code or provide relevant feedback when misuse occurs.
 
-```TypeScript
+```ts
 export function add(a: number, b: number): number {
     if(typeof a !== 'number') {
         throw new TypeError('....');

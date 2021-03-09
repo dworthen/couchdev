@@ -21,11 +21,11 @@ const Layout: React.FC<LayoutProps> = memo(function Layout({ children }) {
 export default Layout;
 
 const StyledMain = styled.div`
-  width: 800px;
+  max-width: 960px;
   margin: 10px auto;
   padding: 20px 35px;
-  background: var(--bg-color);
+  /* background: var(--bg-color);
   border: 2px solid var(--border-color);
   border-radius: 4px;
-  box-shadow: 10px 5px 50px hsl(0deg 0% 9%);
+  box-shadow: 10px 5px 50px hsl(0deg 0% 9%); */
 `

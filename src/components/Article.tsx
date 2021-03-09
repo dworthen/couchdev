@@ -41,7 +41,7 @@ export default Article;
 
 const StyledDate = styled.span`
   text-transform: uppercase;
-  color: hsl(148, 77%, 38%);
+  color: var(--secondary-accent-color);
   font-weight: bold;
   font-size: .85rem;
   margin: 0;

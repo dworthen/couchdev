@@ -37,7 +37,7 @@ Ideally, we would pass parameters from the parent component directly to child co
 
 Let's create a `MiddleComponent` to contain the `DisplayPerson` and `UpdatePerson` components.
 
-```aspnet
+```dotnet
 @* MiddleComponent.cshtml *@
 <div class="boxed">
     <h4>DisplayPerson Component</h4>
@@ -51,7 +51,7 @@ Let's create a `MiddleComponent` to contain the `DisplayPerson` and `UpdatePerso
 
 Notice that we are no longer passing parameters to `DisplayPerson` or `UpdatePerson`. This is because the components will check the hoisted space for the values instead of receiving them directly as parameters. Update `index.cshtml` to use the newly created `MiddleComponent`.
 
-```aspnet
+```dotnet
 @* index.cshtml *@
 ...
 <MiddleComponent></MiddleComponent>
@@ -64,7 +64,7 @@ Notice that we are no longer passing parameters to `DisplayPerson` or `UpdatePer
 
 This will not work. Remember, `DisplayPerson` and `UpdatePerson` need a `Person` object to work with. So let's wrap `MiddleComponent` in a `CascadingValue` component to hoist our `person` object.
 
-```aspnet
+```dotnet
 @* index.cshtml *@
 ...
 <CascadingValue Value="@person">
@@ -75,7 +75,7 @@ This will not work. Remember, `DisplayPerson` and `UpdatePerson` need a `Person`
 
 This is still not enough. `UpdatePerson` also expects a function parameter. A function that will handle updating the state when necessary. Each `CascadingValue` can only hoist one value so we will need to nest tags. 
 
-```aspnet
+```dotnet
 @* index.cshtml *@
 <CascadingValue Value="@person">
     <CascadingValue 
@@ -100,7 +100,7 @@ The second `CascadingValue` component is hoisting a named parameter. Since the p
 
 Next, we need to update `UpdatePerson` and `DisplayPerson` to use `CascadingParameters` instead of normal parameters. We only need to update the decorators to specify `CascadingParameters`. Nothing else needs to change.
 
-```apsnet
+```dotnet
 @* UpdatePerson.cshtml *@
 ...
 @functions {
@@ -112,7 +112,7 @@ Next, we need to update `UpdatePerson` and `DisplayPerson` to use `CascadingPara
 }
 ```
 
-```aspnet
+```dotnet
 @* DisplayPerson.cshtml *@
 ...
 @functions {

@@ -41,7 +41,7 @@ At the time of this writing, I am using .Net CLI tools and SDK version 2.0.2 to 
 
 **Note:** Run `dotnet --info` to print out the version of dotnet CLI tools and SDK installed.
 
-```Bash
+```shell
 mkdir <APP_NAME> && cd <APP_NAME> && dotnet new razor
 ```
 
@@ -55,13 +55,13 @@ Verify the app builds and runs with `dotnet restore && dotnet run`. Head over to
 
 Shell into the Ubuntu host as the dokku user account created during the setup process. I am using the [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10) to drop into Bash and connect to the server instead of using an application like [Putty](http://www.putty.org/). Mac and Linux users can ignore the `bash -c` part of the command and delete the quotes surrounding the `ssh` command.
 
-```Bash
+```shell
 bash -c "ssh dokku@<SERVER_ADDRESS>"
 ```
 
 #### Dokku
 
-```Bash
+```shell
 # Linux host
 $ dokku apps:create <APP_NAME>
 ```
@@ -72,7 +72,7 @@ This will create a git repo at `<SERVER_ADDRESS>:<APP_NAME>`, e.g., derekworthen
 
 On the local machine, initialize git and add a remote location for the newly created dokku repo. (Don't forget to add an [appropriate](https://www.gitignore.io/api/aspnetcore) [.gitignore](https://www.gitignore.io/) file to the project.)
 
-```Bash
+```shell
 # Local development machine
 git init && git add . && git commit -m "initial commit"
 # Must use the dokku user account created during the setup process
@@ -85,7 +85,7 @@ Up until now, we have been following the [basic guide for deploying a Dokku app]
 
 Create a `Dockerfile` in the root of the application with the following contents.
 
-```Dockerfile
+```docker
 # Stage 1. Building.
 # May need use a different tag to get the build to work.
 # https://hub.docker.com/r/microsoft/aspnetcore-build/
@@ -132,7 +132,7 @@ The above Dockerfile provides a runtime environment along with tools to build fr
 
 It is finally time to push the project to the hosting server with git and watch Dokku build and run the application!
 
-```Bash
+```shell
 git add Dockerfile && git commit -m "Add Dockerfile"
 git push dokku master
 ```
@@ -153,32 +153,32 @@ With the [Lets Encrypt](https://letsencrypt.org/) [Dokku plugin](https://github.
 
 #### Install
 
-```Bash
+```shell
 # Need to be logged in as a sudo user instead of the dokku user account
 $ sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 ```
 
 #### Configure
 
-```Bash
+```shell
 $ dokku config:set --no-restart <APP_NAME> DOKKU_LETSENCRYPT_EMAIL=<EMAIL>
 ```
 
 #### Enable
 
-```Bash
+```shell
 $ dokku letsencrypt <APP_NAME>
 ```
 
 #### Auto-renew
 
-```Bash
+```shell
 $ dokku letsencrypt:cron-job --add
 ```
 
 #### Verify
 
-```Bash
+```shell
 $ dokku proxy:report <APP_NAME>
 ```
 

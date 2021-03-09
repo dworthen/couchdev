@@ -6,16 +6,23 @@ import {getPosts} from "../api/posts";
 import hydrate from "next-mdx-remote/hydrate";
 import {PostMetaData} from "../../components/Article";
 import {MdxRemote} from "next-mdx-remote/types";
+import CodeBlock from "../../components/CodeBlock";
 
 export interface PostProps {
     source: MdxRemote.Source
     frontMatter: PostMetaData
 }
 
+const components = {
+    pre: props => <div {...props} />,
+    code: CodeBlock
+  }
+
 const Post: React.FC<PostProps> = memo(function Post({source, frontMatter}) {
-    const content = hydrate(source)
+    const content = hydrate(source, {components})
     return (
         <main>
+            <h1>{frontMatter.title}</h1>
             {content}
         </main>
     )
